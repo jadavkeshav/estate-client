@@ -87,6 +87,13 @@ a {
   font-weight: 600;
 }
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* media queries */
 @media (min-width: 1536px) {
   .innerWidth {

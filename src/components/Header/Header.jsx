@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./Header.css";
-
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 import { BiMenuAltRight } from "react-icons/bi";
 import { getMenuStyles } from "../../utils/common";
 import useHeaderColor from "../../hooks/useHeaderColor";
 import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react"
-import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import { useAuth, useUser } from '@clerk/clerk-react';
+
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0()
+
+  const {  user } = useUser();
+  const { signOut, isSignedIn , userId } = useAuth();
+  // console.log(user.primaryPhoneNumber.phoneNumber)
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -19,7 +22,6 @@ const Header = () => {
         <Link to="/">
           <img src="./logo.png" alt="logo" width={100} />
         </Link>
-
 
         {/* menu */}
         <OutsideClickHandler
@@ -36,13 +38,12 @@ const Header = () => {
             <a href="mailto:jadavkeshav2005@gmail.com">Contact</a>
 
             {/* login button */}
-            {!isAuthenticated ?
-              (<button className="button" onClick={loginWithRedirect}>
-                Login
-              </button>) : (
-             <ProfileMenu user={user} logout={logout} />
-            )
-            }
+            <SignedIn>
+              <UserButton afterSignOutUrl='/sign-in' />
+            </SignedIn>
+            <SignedOut>
+              <Link to="/sign-in">Sign In</Link>
+            </SignedOut>
           </div>
         </OutsideClickHandler>
 

@@ -4,29 +4,12 @@ import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react"
 import { MantineProvider } from '@mantine/core';
-import { ClerkProvider } from '@clerk/clerk-react'
-
-// Import your publishable key
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-
-if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key")
-}
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Auth0Provider
-      domain="jadavkeshav.us.auth0.com"
-      clientId="ZyH5mTgpmPUKtnXEq3kVG47VnEK8pPIc"
-      authorizationParams={{
-        redirect_uri: "http://localhost:5173/"
-      }}
-      audience="http://localhost:8000"
-      scope="openid profile email"
-    > */}
-
-      <MantineProvider>
-        <App />
-      </MantineProvider>
-    {/* </Auth0Provider> */}
-  </React.StrictMode>
+  <MantineProvider>
+    
+      <App />
+    
+  </MantineProvider>
+</React.StrictMode>
 );
