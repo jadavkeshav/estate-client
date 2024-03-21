@@ -1,26 +1,36 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { Outlet } from 'react-router-dom'
-import { ClerkProvider } from '@clerk/clerk-react'
+import { ClerkProvider, useAuth, useUser } from '@clerk/clerk-react'
 import { useNavigate } from "react-router-dom";
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-if (!PUBLISHABLE_KEY) {
-    throw new Error("Missing Publishable Key")
-}
+import UserDetailContext from '../context/UserDetailsContext'
+import { useMutation } from 'react-query'
+import { createUser } from '../../utils/api.js'
+
 
 const Layout = () => {
-    const navigate = useNavigate();
+    const { user } = useUser();
+    const { isSignedIn, userId } = useAuth();
+    const { setUserDetails } = useContext(UserDetailContext)
+
+    const { mutate } = useMutation({
+        mutationKey: [user?.primaryPhoneNumber.phoneNumber],
+        mutationFn: () => createUser(user?.primaryPhoneNumber.phoneNumber)
+    })
+
+    useEffect(() => {
+        isSignedIn && mutate()
+    }, [isSignedIn])
+
     return (
         <>
 
-            <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
-                <div style={{ background: "var(--black)", overflow: "hidden" }}>
-                    <Header />
-                    <Outlet />
-                </div>
-                <Footer />
-            </ClerkProvider>
+            <div style={{ background: "var(--black)", overflow: "hidden" }}>
+                <Header />
+                <Outlet />
+            </div>
+            <Footer />
         </>
     )
 }

@@ -12,9 +12,10 @@ const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
 
-  const {  user } = useUser();
-  const { signOut, isSignedIn , userId } = useAuth();
+  const { user } = useUser();
+  const { signOut, isSignedIn, userId } = useAuth();
   // console.log(user.primaryPhoneNumber.phoneNumber)
+  // console.log(isSignedIn);
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -36,6 +37,10 @@ const Header = () => {
           >
             <NavLink to="/properties">Properties</NavLink>
             <a href="mailto:jadavkeshav2005@gmail.com">Contact</a>
+            {
+              isSignedIn ? (<><NavLink to="/favourites">Favourites</NavLink>
+                <NavLink to="/bookings">Bookings</NavLink></>) : (<></>)
+            }
 
             {/* login button */}
             <SignedIn>

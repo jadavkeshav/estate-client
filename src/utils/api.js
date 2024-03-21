@@ -38,3 +38,13 @@ export const getProperty = async (id)=>{
         throw error
     }
 }
+
+
+export const createUser = async (phoneNumber) => {
+    try {
+        await api.post('/user/register', {phoneNumber});
+    } catch (error) {
+        toast.error("something went wrong, please try again")
+        throw error
+    }
+}
