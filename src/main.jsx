@@ -14,15 +14,7 @@ if (!PUBLISHABLE_KEY) {
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Auth0Provider
-      domain="jadavkeshav.us.auth0.com"
-      clientId="ZyH5mTgpmPUKtnXEq3kVG47VnEK8pPIc"
-      authorizationParams={{
-        redirect_uri: "http://localhost:5173/"
-      }}
-      audience="http://localhost:8000"
-      scope="openid profile email"
-    > */}
+    
 
       <MantineProvider>
         <App />
