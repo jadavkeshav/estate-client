@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Website from "./pages/Website";
+import { SignIn } from "@clerk/clerk-react"
 import { Suspense } from "react";
 import Layout from "./components/Layout/Layout";
 import Properties from "./pages/Properties/Properties";
@@ -19,6 +20,7 @@ function App() {
         <Suspense fallback={<div>Loading....</div>}>
           <Routes>
             <Route element={<Layout />}>
+              <Route path="/sign-in" element={<SignIn />} />
               <Route path="/" element={<Website />} />
               <Route path="/properties">
                 <Route index  element={<Properties/>}/>
