@@ -14,8 +14,6 @@ const Header = () => {
 
   const { user } = useUser();
   const { signOut, isSignedIn, userId } = useAuth();
-  // console.log(user.primaryPhoneNumber.phoneNumber)
-  // console.log(isSignedIn);
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -47,7 +45,7 @@ const Header = () => {
               <UserButton afterSignOutUrl='/sign-in' />
             </SignedIn>
             <SignedOut>
-              <Link to="/sign-in">Sign In</Link>
+              <button className="button"><Link to="/sign-in">Sign In</Link></button>
             </SignedOut>
           </div>
         </OutsideClickHandler>

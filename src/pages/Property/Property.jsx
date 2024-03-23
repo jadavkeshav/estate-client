@@ -1,17 +1,41 @@
-import React from 'react'
-import { useQuery } from "react-query"
+import React, { useContext, useState } from 'react'
+import { useMutation, useQuery } from "react-query"
 import { useLocation } from "react-router-dom"
-import { getProperty } from '../../utils/api';
+import { getProperty, removeBooking } from '../../utils/api';
 import { PuffLoader } from "react-spinners"
 import { AiFillHeart, AiFillLayout, AiTwotoneCar } from 'react-icons/ai';
 import { FaShower } from "react-icons/fa";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md"
 import './Property.css'
 import Map from '../../components/Map/Map.jsx';
+import useAuthCheck from '../../hooks/useAuthCheck.jsx';
+import { useUser } from '@clerk/clerk-react';
+import BookingModal from '../../components/BookingModal/BookingModal.jsx';
+import UserDetailContext from '../../components/context/UserDetailsContext.js';
+import { toast } from 'react-toastify';
 const Property = () => {
     const { pathname } = useLocation();
     const id = pathname.split("/").slice(-1)[0]
     const { data, isLoading, isError } = useQuery(["resd", id], () => getProperty(id))
+
+    const [modalOpened, setModalOpened] = useState(false)
+    const { validateLogin } = useAuthCheck()
+    const { user } = useUser();
+    const userPhoneNumber = user?.primaryPhoneNumber.phoneNumber;
+    console.log("ph", userPhoneNumber)
+
+    const { userDetails: { bookings }, setUserDetails } = useContext(UserDetailContext)
+    const { mutate: cancelBooking, isLoading: cancelling } = useMutation({
+        mutationFn: () => removeBooking(id, user?.primaryPhoneNumber.phoneNumber),
+        onSuccess: () => {
+            setUserDetails((prev) => ({
+                ...prev,
+                bookings: prev.bookings.filter((booking) => booking?.id !== id)
+            }))
+            toast.success("Booking Cancelled", { position: "bottom-right" })
+        }
+    })
+    console.log("yoyo",bookings.some((booking) => booking.id === id))
     if (isLoading) {
         return (
             <div className="wrapper">
@@ -28,6 +52,7 @@ const Property = () => {
             </div>
         </div>
     }
+    console.log(modalOpened)
     return (
         <div className='wrapper'>
             <div className="flexColStart paddings innerWidth property-container">
@@ -91,19 +116,37 @@ const Property = () => {
                         </div>
 
                         {/* booking button */}
-                        <button className='button'>Book Your Visit</button>
 
-
+                        {bookings?.map((booking) => booking.id).includes(id) ? (
+                            <>
+                                <button className='button' style={{ background: "red", width: '100%' }} onClick={cancelBooking}>
+                                    <span>Cancel Booking</span>
+                                </button>
+                                <span>Your visit already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}</span>
+                            </>
+                        ) : (
+                            <button className='button'
+                                onClick={() => {
+                                    validateLogin() && setModalOpened(true)
+                                }}
+                            >
+                                Book Your Visit
+                            </button>
+                        )}
+                        {modalOpened && <BookingModal
+                            opened={modalOpened}
+                            setOpened={setModalOpened}
+                            propertyId={id}
+                            phoneNumber={userPhoneNumber}
+                        />}
                     </div>
-
-
                     {/* right side map*/}
                     <div className="map">
                         <Map address={data?.address} city={data?.city} country={data?.country} />
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

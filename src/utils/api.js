@@ -1,14 +1,14 @@
 import axios from "axios";
 import dayjs from "dayjs";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 export const api = axios.create({
     baseURL: "http://localhost:8000/api/"
 })
 
-export const getAllProperties = async()=>{
+export const getAllProperties = async () => {
     try {
-        const response = await api.get("/residency/allresd",{
+        const response = await api.get("/residency/allresd", {
             timeout: 10 * 1000,
         })
         if (response.status === 400 || response.status === 500) {
@@ -24,9 +24,9 @@ export const getAllProperties = async()=>{
 
 
 
-export const getProperty = async (id)=>{
+export const getProperty = async (id) => {
     try {
-        const response = await api.get(`/residency/${id}`,{
+        const response = await api.get(`/residency/${id}`, {
             timeout: 10 * 1000,
         })
         if (response.status === 400 || response.status === 500) {
@@ -42,7 +42,32 @@ export const getProperty = async (id)=>{
 
 export const createUser = async (phoneNumber) => {
     try {
-        await api.post('/user/register', {phoneNumber});
+        await api.post('/user/register', { phoneNumber });
+    } catch (error) {
+        toast.error("something went wrong, please try again")
+        throw error
+    }
+}
+
+export const bookVisit = async (date, propertyId, phoneNumber) => {
+    try {
+        await api.post(`/user/bookVisit/${propertyId}`,
+            {
+                phoneNumber: phoneNumber,
+                date: dayjs(date).format("DD/MM/YYYY")
+            })
+    } catch (error) {
+        toast.error("something went wrong, please try again")
+        throw error
+    }
+}
+
+export const removeBooking = async (id, phoneNumber) => {
+    try {
+        await api.post(`/user/removeBooking/${id}`,
+            {
+                phoneNumber: phoneNumber,
+            })
     } catch (error) {
         toast.error("something went wrong, please try again")
         throw error
