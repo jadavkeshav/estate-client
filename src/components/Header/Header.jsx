@@ -36,8 +36,9 @@ const Header = () => {
             <NavLink to="/properties">Properties</NavLink>
             <a href="mailto:jadavkeshav2005@gmail.com">Contact</a>
             {
-              isSignedIn ? (<><NavLink to="/favourites">Favourites</NavLink>
-                <NavLink to="/bookings">Bookings</NavLink></>) : (<></>)
+              isSignedIn ? (<>
+                <NavLink to="/bookings">Bookings</NavLink>
+              </>) : (<></>)
             }
 
             {/* login button */}

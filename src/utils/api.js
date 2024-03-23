@@ -40,10 +40,12 @@ export const getProperty = async (id) => {
 }
 
 
-export const createUser = async (phoneNumber) => {
+export const createUser = async (phoneNumber, fullName) => {
     try {
-        const response = await api.post('/user/register', { phoneNumber });
+        const response = await api.post('/user/register', { phoneNumber , name: fullName});
+        console.log("user from db : ", response.data)
         return response.data
+
     } catch (error) {
         toast.error("something went wrong, please try again")
         throw error
@@ -76,31 +78,31 @@ export const removeBooking = async (id, phoneNumber) => {
 }
 
 
-export const toFav = async (id, phoneNumber) => {
-    try {
-        await api.post(`/user/toFav/${id}`, {
-            phoneNumber
-        })
-    } catch (error) {
-        toast.error("something went wrong, please try again")
-        throw error
-    }
-}
+// export const toFav = async (id, phoneNumber) => {
+//     try {
+//         await api.post(`/user/toFav/${id}`, {
+//             phoneNumber
+//         })
+//     } catch (error) {
+//         toast.error("something went wrong, please try again")
+//         throw error
+//     }
+// }
 
 
-export const getAllFav = async (phoneNumber) => {
-    try {
-        const res = await api.post(
-            `/user/allFav`, {
-            phoneNumber
-        }
-        )
-        return res.data["favResidenciesID"]
-    } catch (error) {
-        toast.error("something went wrong, please try again while fetching favs")
-        throw error
-    }
-}
+// export const getAllFav = async (phoneNumber) => {
+//     try {
+//         const res = await api.post(
+//             `/user/allFav`, {
+//             phoneNumber
+//         }
+//         )
+//         return res.data["favResidenciesID"]
+//     } catch (error) {
+//         toast.error("something went wrong, please try again while fetching favs")
+//         throw error
+//     }
+// }
 
 export const getAllBookings = async (phoneNumber) => {
 

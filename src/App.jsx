@@ -12,12 +12,11 @@ import SignInComponent from "./components/SignIn/SignInComponent";
 import UserDetailContext from "./components/context/UserDetailsContext";
 import MainLayout from "./components/Layout/MainLayout";
 import Bookings from "./pages/Bookings/Bookings";
-import Favourites from "./pages/Favourites/Favourites";
 function App() {
 
   const queryClient = new QueryClient()
   const [userDetails, setUserDetails] = useState({
-    favourites: [],
+    // favourites: [],
     bookings: [],
     token: null
   })
@@ -37,7 +36,6 @@ function App() {
                   <Route path=":propertyId" element={<Property />} />
                 </Route>
                 <Route path="/bookings" element={<Bookings />}></Route>
-                <Route path="/favourites" element={<Favourites />}></Route>
               </Route>
             </Routes>
           </Suspense>
