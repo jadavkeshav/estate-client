@@ -13,6 +13,7 @@ import { useUser } from '@clerk/clerk-react';
 import BookingModal from '../../components/BookingModal/BookingModal.jsx';
 import UserDetailContext from '../../components/context/UserDetailsContext.js';
 import { toast } from 'react-toastify';
+import Heart from '../../components/Heart/Heart.jsx';
 const Property = () => {
     const { pathname } = useLocation();
     const id = pathname.split("/").slice(-1)[0]
@@ -58,7 +59,7 @@ const Property = () => {
             <div className="flexColStart paddings innerWidth property-container">
                 {/* like button */}
                 <div className='like'>
-                    <AiFillHeart size={24} color='white' />
+                    <Heart id={id} />
                 </div>
                 {/* image */}
                 <img src={data?.image} alt='home ' />

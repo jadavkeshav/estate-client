@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Website from "./pages/Website";
 import { Suspense, useState } from "react";
-import Layout from "./components/Layout/Layout";
 import Properties from "./pages/Properties/Properties";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"
@@ -12,6 +11,8 @@ import Property from "./pages/Property/Property";
 import SignInComponent from "./components/SignIn/SignInComponent";
 import UserDetailContext from "./components/context/UserDetailsContext";
 import MainLayout from "./components/Layout/MainLayout";
+import Bookings from "./pages/Bookings/Bookings";
+import Favourites from "./pages/Favourites/Favourites";
 function App() {
 
   const queryClient = new QueryClient()
@@ -20,6 +21,7 @@ function App() {
     bookings: [],
     token: null
   })
+
 
   return (
     <UserDetailContext.Provider value={{ userDetails, setUserDetails }}>
@@ -34,6 +36,8 @@ function App() {
                   <Route index element={<Properties />} />
                   <Route path=":propertyId" element={<Property />} />
                 </Route>
+                <Route path="/bookings" element={<Bookings />}></Route>
+                <Route path="/favourites" element={<Favourites />}></Route>
               </Route>
             </Routes>
           </Suspense>

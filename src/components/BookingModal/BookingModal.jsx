@@ -8,14 +8,8 @@ import { bookVisit } from '../../utils/api';
 import { toast } from 'react-toastify';
 const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
     const [value, setValue] = useState(null)
-    // const minDate = dayjs().format('YYYY-MM-DD');
-    // const handleBookVisit = () => {
-    //     // Format the selected date
-    //     const formattedDate = dayjs(value).format('YYYY-MM-DD');
-    //     console.log('Selected Date:', formattedDate);
-    // };
+ 
     const { userDetails, setUserDetails } = useContext(UserDetailContext)
-    // console.log("id", pro)
 
     const handleBookingSuccess = () => {
         toast.success("you have booked your visit", {
