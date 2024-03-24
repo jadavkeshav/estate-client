@@ -16,7 +16,7 @@ export const getAllProperties = async () => {
         }
         return response.data
     } catch (error) {
-        toast.error("something went wrong")
+        toast.error("something went wrong in fetching property")
         throw error
     }
 }
@@ -34,7 +34,7 @@ export const getProperty = async (id) => {
         }
         return response.data
     } catch (error) {
-        toast.error("something went wrong")
+        toast.error("something went wrong in fetching property")
         throw error
     }
 }
@@ -120,3 +120,19 @@ export const getAllBookings = async (phoneNumber) => {
         throw error
     }
 }
+
+
+export const createResidency = async (data) => {
+    console.log(data)
+    try{
+      const res = await api.post(
+        `/residency/create`,
+        {
+          data
+        }
+      )
+    }catch(error)
+    {
+      throw error
+    }
+  }

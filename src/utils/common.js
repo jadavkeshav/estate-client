@@ -37,3 +37,10 @@ export const updateFavourites = (id, favourites) => {
 export const checkFav = (id, favourites) => {
   return favourites?.includes(id) ? "#fa325f": "white";
 }
+
+
+export const validateString = (value) => {
+  return value?.length < 3 || value === null
+    ? "Must have atleast 3 characters"
+    : null;
+};

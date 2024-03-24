@@ -7,13 +7,24 @@ import useHeaderColor from "../../hooks/useHeaderColor";
 import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth, useUser } from '@clerk/clerk-react';
+import useAuthCheck from "../../hooks/useAuthCheck";
+import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
+  const [modalOpened, setModalOpened] = useState(false)
   const navigate = useNavigate()
   const { user } = useUser();
   const { signOut, isSignedIn, userId } = useAuth();
+  const {validateLogin} = useAuthCheck()
+  const handleAddPropertyClick = ()=>{
+    if (validateLogin()) {
+      setModalOpened(true)
+    }
+  }
+
+
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -40,6 +51,14 @@ const Header = () => {
                 <NavLink to="/bookings">Bookings</NavLink>
               </>) : (<></>)
             }
+
+            {/* add property */}
+            <div onClick={handleAddPropertyClick}>Add Property</div>
+            <AddPropertyModal 
+              opened={modalOpened}
+              setOpened={setModalOpened}
+
+            />
 
             {/* login button */}
             <SignedIn>

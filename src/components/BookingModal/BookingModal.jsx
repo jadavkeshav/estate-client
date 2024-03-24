@@ -8,7 +8,7 @@ import { bookVisit } from '../../utils/api';
 import { toast } from 'react-toastify';
 const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
     const [value, setValue] = useState(null)
- 
+
     const { userDetails, setUserDetails } = useContext(UserDetailContext)
 
     const handleBookingSuccess = () => {
