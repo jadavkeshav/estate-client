@@ -29,7 +29,6 @@ const Layout = () => {
 
         }
     })
-
     useEffect(() => {
         isSignedIn && mutate()
     }, [isSignedIn])

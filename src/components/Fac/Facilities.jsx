@@ -84,7 +84,7 @@ const Facilities = ({
 
     return (
         <form onSubmit={handleSubmit}>
-            <Grid container spacing={2} justifyContent="center">
+            <Grid container spacing={2} justifyContent="center" marginTop={3}>
                 <Grid item xs={12}>
                     <TextField
                         fullWidth
@@ -124,20 +124,14 @@ const Facilities = ({
                         style={{ marginBottom: '1rem' }}
                     />
                 </Grid>
-                <Grid item xs={12}>
-                    <Grid container justifyContent="center">
-                        <Grid item>
-                            <Button variant="outlined" onClick={prevStep}>
-                                Back
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button type="submit" variant="contained" color="primary" disabled={isLoading}>
-                                {isLoading ? "Submitting" : "Add Property"}
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
+            <Grid justifyContent={'space-between'}>
+                <Button variant="outlined" onClick={prevStep}>
+                    Back
+                </Button>
+                <Button type="submit" variant="contained" color="primary" disabled={isLoading}>
+                    {isLoading ? "Submitting" : "Add Property"}
+                </Button>
+            </Grid>
             </Grid>
         </form>
     );

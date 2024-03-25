@@ -21,7 +21,7 @@ const Value = () => {
       <div className="paddings innerWidth flexCenter v-container">
         <div className="v-left">
           <div className="image-container">
-            <img src="./value.png" alt="" />
+            <img src="./mrshankarfull.png" alt="" />
           </div>
         </div>
 

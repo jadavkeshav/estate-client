@@ -42,8 +42,8 @@ export const getProperty = async (id) => {
 
 export const createUser = async (phoneNumber, fullName) => {
     try {
-        const response = await api.post('/user/register', { phoneNumber , name: fullName});
-        console.log("user from db : ", response.data)
+        const response = await api.post('/user/register', { phoneNumber, name: fullName });
+        // console.log("user from db : ", response.data)
         return response.data
 
     } catch (error) {
@@ -124,15 +124,25 @@ export const getAllBookings = async (phoneNumber) => {
 
 export const createResidency = async (data) => {
     console.log(data)
-    try{
-      const res = await api.post(
-        `/residency/create`,
-        {
-          data
-        }
-      )
-    }catch(error)
-    {
-      throw error
+    try {
+        const res = await api.post(
+            `/residency/create`,
+            {
+                data
+            }
+        )
+    } catch (error) {
+        throw error
     }
-  }
+}
+
+export const fetchUserDetails = async (phoneNumber) => {
+    try {
+
+        const response = await api.post('/user/fetchUser', { phoneNumber: phoneNumber });
+        return response.data;
+    } catch (error) {
+        toast.error("Something went wrong while fetching user details");
+        throw error;
+    }
+};

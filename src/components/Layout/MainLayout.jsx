@@ -12,7 +12,6 @@ const MainLayout = () => {
     return (
         <div>
             <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
-
                 <Layout />
             </ClerkProvider>
         </div>

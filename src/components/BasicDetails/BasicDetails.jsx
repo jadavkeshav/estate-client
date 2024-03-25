@@ -49,9 +49,9 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
 
     return (
         <form onSubmit={handleSubmit}>
-            <Grid container spacing={2} justifyContent="space-between" alignItems="flex-start" marginTop="3rem">
+            <Grid container spacing={2}  justifyContent="space-between" alignItems="flex-start" marginTop="3rem">
                 {/* Left side */}
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                     <TextField
                         fullWidth
                         required
@@ -62,6 +62,8 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
                         onChange={handleChange}
                         error={Boolean(errors.title)}
                         helperText={errors.title}
+                        style={{ marginBottom: '1rem' }}
+                        
                     />
                     <TextField
                         fullWidth
@@ -75,6 +77,7 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
                         rows={3}
                         error={Boolean(errors.description)}
                         helperText={errors.description}
+                        style={{ marginBottom: '1rem' }}
                     />
                     <TextField
                         fullWidth
@@ -87,6 +90,8 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
                         type="number"
                         error={Boolean(errors.price)}
                         helperText={errors.price}
+                        style={{ marginBottom: '1rem' }}
+                        
                     />
                     <Button type="submit" variant="contained" color="primary" disabled={isButtonDisabled}>
                         Next Step

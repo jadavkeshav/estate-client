@@ -12,6 +12,9 @@ import SignInComponent from "./components/SignIn/SignInComponent";
 import UserDetailContext from "./components/context/UserDetailsContext";
 import MainLayout from "./components/Layout/MainLayout";
 import Bookings from "./pages/Bookings/Bookings";
+import AdminPrivateRoute from "./admin/AdminPrivateRoute";
+import AdminDashboard from "./admin/AdminDashboard";
+import { useAuth, useUser } from "@clerk/clerk-react";
 function App() {
 
   const queryClient = new QueryClient()
@@ -31,11 +34,16 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route path="/sign-in" element={<SignInComponent />} />
                 <Route path="/" element={<Website />} />
+
                 <Route path="/properties">
                   <Route index element={<Properties />} />
                   <Route path=":propertyId" element={<Property />} />
                 </Route>
+
                 <Route path="/bookings" element={<Bookings />}></Route>
+                {/* <Route path="/admin" element={<AdminPrivateRoute />}>
+                  <Route path="dashboard" element={<AdminDashboard />} />
+                </Route> */}
               </Route>
             </Routes>
           </Suspense>
