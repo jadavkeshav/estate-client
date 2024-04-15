@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 import { BiMenuAltRight } from "react-icons/bi";
@@ -10,27 +10,27 @@ import { useAuth, useUser } from '@clerk/clerk-react';
 import useAuthCheck from "../../hooks/useAuthCheck";
 import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
 
-const Header = () => {
+const Header = ({ dbUser }) => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
   const [modalOpened, setModalOpened] = useState(false)
   const navigate = useNavigate()
   const { user } = useUser();
   const { signOut, isSignedIn, userId } = useAuth();
-  const {validateLogin} = useAuthCheck()
-  const handleAddPropertyClick = ()=>{
+  const { validateLogin } = useAuthCheck()
+
+  const handleAddPropertyClick = () => {
     if (validateLogin()) {
       setModalOpened(true)
     }
   }
 
-  // console.log("my ig",isSignedIn)
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
         {/* logo */}
         <Link to="/">
-          <img src="./mylogo.png" alt="logo" width={100} />
+          <img src={'../../../public/mylogo.png'} alt="logo" width={100} />
         </Link>
 
         {/* menu */}
@@ -40,26 +40,21 @@ const Header = () => {
           }}
         >
           <div
-            // ref={menuRef}
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
             <a href="mailto:jadavkeshav2005@gmail.com">Contact</a>
-            {
-              isSignedIn ? (<>
-                <NavLink to="/bookings">Bookings</NavLink>
-              </>) : (<></>)
-            }
-
-            {/* add property */}
-            <div onClick={handleAddPropertyClick}>Add Property</div>
-            <AddPropertyModal 
+            {isSignedIn && (
+              <NavLink to="/bookings">Bookings</NavLink>
+            )}
+            {isSignedIn && dbUser && dbUser.user && dbUser.user.role === 'admin' && (
+              <div onClick={handleAddPropertyClick}>Add Property</div>
+            )}
+            <AddPropertyModal
               opened={modalOpened}
               setOpened={setModalOpened}
             />
-
-            {/* login button */}
             <SignedIn>
               <UserButton afterSignOutUrl='/sign-in' />
             </SignedIn>

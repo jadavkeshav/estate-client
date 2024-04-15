@@ -22,6 +22,7 @@
     "@mui/x-date-pickers": "^7.0.0",
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
+    "dotenv": "^16.4.5",
     "esri-leaflet-geocoder": "^2.3.3",
     "framer-motion": "^10.8.5",
     "leaflet": "^1.9.4",

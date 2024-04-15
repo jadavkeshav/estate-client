@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useMutation, useQuery } from "react-query"
 import { useLocation } from "react-router-dom"
 import { getProperty, removeBooking } from '../../utils/api';
 import { PuffLoader } from "react-spinners"
-import { AiFillHeart, AiFillLayout, AiTwotoneCar } from 'react-icons/ai';
+import { AiFillHeart, AiFillLayout, AiOutlineLeft, AiOutlineRight, AiTwotoneCar } from 'react-icons/ai';
 import { FaShower } from "react-icons/fa";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md"
 import './Property.css'
@@ -36,6 +36,25 @@ const Property = () => {
         }
     })
     console.log("yoyo",bookings.some((booking) => booking.id === id))
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const nextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % data?.image.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + data?.image.length) % data?.image.length);
+    };
+
+    useEffect(() => {
+        // Ensure data and image array exist before setting up the interval
+        if (!isLoading && !isError && data && data.image) {
+            const interval = setInterval(nextImage, 5000);
+            return () => clearInterval(interval);
+        }
+    }, [data, isError, isLoading]);
+
     if (isLoading) {
         return (
             <div className="wrapper">
@@ -52,7 +71,9 @@ const Property = () => {
             </div>
         </div>
     }
-    console.log(modalOpened)
+    console.log("currentImageIndex : ", currentImageIndex )
+
+    const imagesExist = data && data.image && data.image.length > 0;
     return (
         <div className='wrapper'>
             <div className="flexColStart paddings innerWidth property-container">
@@ -61,7 +82,17 @@ const Property = () => {
                     <Heart id={id} />
                 </div> */}
                 {/* image */}
-                <img src={data?.image} alt='home ' />
+                {/* <img src={data?.image} alt='home ' /> */}
+
+                <div className="image-carousel">
+                    <div className="carousel-arrow left" onClick={prevImage}>
+                        <AiOutlineLeft />
+                    </div>
+                    <img src={data?.image[currentImageIndex]} alt='home' />
+                    <div className="carousel-arrow right" onClick={nextImage}>
+                        <AiOutlineRight />
+                    </div>
+                </div>
 
 
                 <div className="flexCenter property-details">

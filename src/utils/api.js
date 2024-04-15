@@ -146,3 +146,17 @@ export const fetchUserDetails = async (phoneNumber) => {
         throw error;
     }
 };
+export const getUser = async (phoneNumber) => {
+    try {
+        const response = await api.post('/user/getUser', { phoneNumber });
+
+        if (response.status !== 200) {
+            throw new Error('Failed to fetch user details');
+        }
+
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching user details:', error);
+        throw error;
+    }
+};

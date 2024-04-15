@@ -26,7 +26,7 @@ export const getUser = () => {
     useEffect(() => {
         isSignedIn && mutate()
     }, [isSignedIn])
-    console.log("jhonsena", myuser.user.role)
+    // console.log("jhonsena", myuser.user.role)
 
     return{
         userDetails

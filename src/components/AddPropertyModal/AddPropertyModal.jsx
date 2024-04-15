@@ -21,7 +21,7 @@ const AddPropertyModal = ({ opened, setOpened }) => {
     country: '',
     city: '',
     address: '',
-    image: null,
+    image: [],
     facilities: {
       bedrooms: 0,
       parkings: 0,
@@ -29,8 +29,8 @@ const AddPropertyModal = ({ opened, setOpened }) => {
     },
     userPhoneNumber: "",
   });
-  console.log("my property deatails : ", propertyDetails)
-  console.log(propertyDetails)
+  // console.log("my property deatails : ", propertyDetails)
+  // console.log(propertyDetails)
   const steps = ['Location', 'Images', 'Basics', 'Facilities'];
 
   const nextStep = () => {
