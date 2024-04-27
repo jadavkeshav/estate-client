@@ -24,7 +24,9 @@ const Layout = ({dbUser, setDbUser}) => {
                     token: data.token || null
                 });
             } else {
-                toast.error("Something went wrong, please try again");
+                toast.error("Something went wrong, please try again, Refresh the page", {
+                    position: "top-right"
+                });
             }
 
         }

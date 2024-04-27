@@ -49,7 +49,7 @@ function App() {
             </Routes>
           </Suspense>
         </BrowserRouter>
-        <ToastContainer />
+        <ToastContainer position="top-right" />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </UserDetailContext.Provider>

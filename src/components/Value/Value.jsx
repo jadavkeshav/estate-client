@@ -14,6 +14,7 @@ import {
 } from "react-icons/md";
 import data from "../../utils/accordion.jsx";
 import "./Value.css";
+import Shankar from "../../../public/mrshankarfull.png"
 
 const Value = () => {
   return (
@@ -21,7 +22,7 @@ const Value = () => {
       <div className="paddings innerWidth flexCenter v-container">
         <div className="v-left">
           <div className="image-container">
-            <img src="./mrshankarfull.png" alt="" />
+            <img src={Shankar} alt="" />
           </div>
         </div>
 

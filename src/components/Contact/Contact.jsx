@@ -2,7 +2,9 @@ import React from "react";
 import "./Contact.css";
 import { MdCall } from "react-icons/md";
 import { BsFillChatDotsFill } from "react-icons/bs";
-import {HiChatBubbleBottomCenter} from 'react-icons/hi2'
+import con from "../../../public/r3.svg"
+import { HiChatBubbleBottomCenter } from 'react-icons/hi2'
+import whastapp from "../../../public/whatsapp-svgrepo-com.svg"
 const Contact = () => {
   return (
     <div id="contact-us" className="c-wrapper">
@@ -11,7 +13,7 @@ const Contact = () => {
         <div className="flexColStart c-left">
           <span className="orangeText">Our Contact Us</span>
           <span className="primaryText">Easy to contact us</span>
-          
+
 
           <div className="flexColStart contactModes">
             {/* first row */}
@@ -29,15 +31,14 @@ const Contact = () => {
                 <div className="flexCenter button">Call now</div>
               </div>
 
-              
-
               <div className="flexColCenter mode">
                 <div className="flexStart">
                   <div className="flexCenter icon">
-                    <HiChatBubbleBottomCenter size={25} />
+                    {/* <HiChatBubbleBottomCenter size={25} /> */}
+                    <img src={whastapp} alt="" style={{width: '25px'}}/>
                   </div>
                   <div className="flexColStart detail" >
-                    <span className="primaryText" >Message</span>
+                    <span className="primaryText">What'sapp</span>
                     <span className="secondaryText">90101 67317</span>
                   </div>
                 </div>
@@ -50,7 +51,7 @@ const Contact = () => {
         {/* right side */}
         <div className="flexEnd c-right">
           <div className="image-container">
-            <img src="./contact.jpg" alt="" />
+            <img src={con} alt="" />
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ const Property = () => {
                 ...prev,
                 bookings: prev.bookings.filter((booking) => booking?.id !== id)
             }))
-            toast.success("Booking Cancelled", { position: "bottom-right" })
+            toast.success("Booking Cancelled ", { position: "top-right" })
         }
     })
     console.log("yoyo", bookings.some((booking) => booking.id === id))
@@ -50,7 +50,6 @@ const Property = () => {
     };
 
     useEffect(() => {
-        // Ensure data and image array exist before setting up the interval
         if (!isLoading && !isError && data && data.image) {
             const interval = setInterval(nextImage, 5000);
             return () => clearInterval(interval);
@@ -79,12 +78,7 @@ const Property = () => {
     return (
         <div className='wrapper'>
             <div className="flexColStart paddings innerWidth property-container">
-                {/* like button */}
-                {/* <div className='like'>
-                    <Heart id={id} />
-                </div> */}
-                {/* image */}
-                {/* <img src={data?.image} alt='home ' /> */}
+
 
                 <div className="image-carousel">
                     <div className="carousel-arrow left" onClick={prevImage}>
@@ -150,21 +144,26 @@ const Property = () => {
 
                         {/* booking button */}
 
-                        {bookings?.map((booking) => booking.id).includes(id) ? (
-                            <>
-                                <button className='button' style={{ background: "red", width: '100%' }} onClick={cancelBooking}>
-                                    <span>Cancel Booking</span>
-                                </button>
-                                <span>Your visit already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}</span>
-                            </>
+                        {cancelling ? (
+                            // Show loading indication while cancelling
+                            <div className="flexCenter">
+                                <PuffLoader />
+                                <span>Cancelling booking...</span>
+                            </div>
                         ) : (
-                            <button className='button'
-                                onClick={() => {
-                                    validateLogin() && setModalOpened(true)
-                                }}
-                            >
-                                Book Your Visit
-                            </button>
+                            // Show booking cancellation button or booking status
+                            bookings?.map((booking) => booking.id).includes(id) ? (
+                                <>
+                                    <button className='button' style={{ background: "red", width: '100%' }} onClick={cancelBooking}>
+                                        <span>Cancel Booking</span>
+                                    </button>
+                                    <span>Your visit already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}</span>
+                                </>
+                            ) : (
+                                <button className='button' onClick={() => validateLogin() && setModalOpened(true)}>
+                                    Book Your Visit
+                                </button>
+                            )
                         )}
                         {modalOpened && <BookingModal
                             opened={modalOpened}
@@ -175,7 +174,7 @@ const Property = () => {
                     </div>
                     {/* right side map*/}
                     <div>
-                        <div className="youtube-section" style={{ marginTop: '2rem', backgroundColor: "#FFDDE1", display: "flex", alignItems: "center", justifyContent: "center" , gap:"2rem", borderRadius: "1rem", border: "1px solid black"}}>
+                        <div className="youtube-section" style={{ marginTop: '2rem', backgroundColor: "#FFDDE1", display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", borderRadius: "1rem", border: "1px solid black" }}>
                             <img src={YoutubeLogo} alt="YouTube Logo" style={{ height: "100px" }} />
                             <a href={data?.yturl} target='_blank'>Cick Here to Watch Property video</a>
                         </div>

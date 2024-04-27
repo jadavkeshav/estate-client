@@ -2,6 +2,7 @@ import "./Hero.css";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import Searchbar from "../SearchBar/Searchbar";
+import Heroimg from "../../../public/hero-image.svg"
 const Hero = () => {
   return (
     <section className="hero-wrapper">
@@ -29,8 +30,10 @@ const Hero = () => {
           </div>
 
           <Searchbar/>
-
-          <div className="flexCenter stats">
+            <div></div>
+            <div></div>
+            <div></div>
+          {/* <div className="flexCenter stats">
             <div className="flexColCenter stat">
               <span>
                 <CountUp start={8800} end={9000} duration={4} /> <span>+</span>
@@ -51,7 +54,7 @@ const Hero = () => {
               </span>
               <span className="secondaryText">Awards Winning</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* right side */}
@@ -65,7 +68,7 @@ const Hero = () => {
             }}
             className="image-container"
           >
-            <img src="./hero-image.png" alt="houses" />
+            <img src={Heroimg} alt="houses" />
           </motion.div>
         </div>
       </div>

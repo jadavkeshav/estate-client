@@ -1,5 +1,6 @@
 .f-container{
     justify-content: space-between;
+    margin-top:100px;
     border-top: .5px solid rgba(0, 0, 0, 0.140);
 }
 .f-left{

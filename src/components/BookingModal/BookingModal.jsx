@@ -7,29 +7,27 @@ import UserDetailContext from '../context/UserDetailsContext';
 import { bookVisit } from '../../utils/api';
 import { toast } from 'react-toastify';
 const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
-    const [value, setValue] = useState(null)
-
-    const { userDetails, setUserDetails } = useContext(UserDetailContext)
+    const [value, setValue] = useState(null);
+    const { userDetails, setUserDetails } = useContext(UserDetailContext);
 
     const handleBookingSuccess = () => {
-        toast.success("you have booked your visit", {
-            position: "bottom-right"
-        });
+        toast.success("You have booked your visit", { position: "top-right" });
         setUserDetails((prev) => ({
             ...prev,
             bookings: [
-                ...prev.bookings, {
-                    id: propertyId, date: dayjs(value).format('DD/MM/YYYY')
-                }
+                ...prev.bookings,
+                { id: propertyId, date: dayjs(value).format('DD/MM/YYYY') }
             ]
-        }))
-    }
+        }));
+    };
+
     const { mutate, isLoading } = useMutation({
         mutationFn: () => bookVisit(value, propertyId, phoneNumber),
         onSuccess: () => handleBookingSuccess(),
-        onError: ({ response }) => toast.error(response.data.message),
+        onError: ({ response }) => toast.error(response.data.message, { position: "top-right" }),
         onSettled: () => setOpened(false)
-    })
+    });
+
     return (
         <Modal
             isOpen={opened}
@@ -76,13 +74,23 @@ const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
             </div>
             <div className='flexColCenter'>
                 <div style={{ marginTop: '30px' }}>
-                    <DatePicker label="Basic date picker" value={value}
-                        onChange={(newValue) => setValue(newValue)} />
+                    <DatePicker
+                        label="Basic date picker"
+                        value={value}
+                        onChange={(newValue) => setValue(newValue)}
+                    />
                 </div>
-                <button disabled={!value} onClick={() => mutate()} className='button' style={{ marginTop: '10px' }}> Book Visit</button>
+                <button
+                    disabled={!value || isLoading} // Disable button while loading
+                    onClick={() => mutate()}
+                    className='button'
+                    style={{ marginTop: '10px' }}
+                >
+                    {isLoading ? "Booking..." : "Book Visit"} {/* Change button text based on loading state */}
+                </button>
             </div>
         </Modal>
     );
 };
-
 export default BookingModal;
+
