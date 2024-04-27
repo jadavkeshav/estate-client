@@ -13,6 +13,7 @@ import { useUser } from '@clerk/clerk-react';
 import BookingModal from '../../components/BookingModal/BookingModal.jsx';
 import UserDetailContext from '../../components/context/UserDetailsContext.js';
 import { toast } from 'react-toastify';
+import ReactPlayer from 'react-player'
 const Property = () => {
     const { pathname } = useLocation();
     const id = pathname.split("/").slice(-1)[0]
@@ -35,7 +36,7 @@ const Property = () => {
             toast.success("Booking Cancelled", { position: "bottom-right" })
         }
     })
-    console.log("yoyo",bookings.some((booking) => booking.id === id))
+    console.log("yoyo", bookings.some((booking) => booking.id === id))
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -71,7 +72,7 @@ const Property = () => {
             </div>
         </div>
     }
-    console.log("currentImageIndex : ", currentImageIndex )
+    console.log("currentImageIndex : ", currentImageIndex)
 
     const imagesExist = data && data.image && data.image.length > 0;
     return (
@@ -172,10 +173,17 @@ const Property = () => {
                         />}
                     </div>
                     {/* right side map*/}
-                    <div className="map">
-                        <Map address={data?.address} city={data?.city} country={data?.country} />
+                    <div>
+                        <div className="youtube-section" style={{ marginTop: '2rem', backgroundColor: "#FFDDE1", display: "flex", alignItems: "center", justifyContent: "center" , gap:"2rem", borderRadius: "1rem", border: "1px solid black"}}>
+                            <img src={"../../../public/youtube.svg"} alt="YouTube Logo" style={{ height: "100px" }} />
+                            <a href={data?.yturl} target='_blank'>Cick Here to Watch Property video</a>
+                        </div>
+                        <div className="map">
+                            <Map address={data?.address} city={data?.city} country={data?.country} />
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div >
     )

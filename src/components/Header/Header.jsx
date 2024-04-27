@@ -8,14 +8,14 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth, useUser } from '@clerk/clerk-react';
 import useAuthCheck from "../../hooks/useAuthCheck";
-import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
-
 const Header = ({ dbUser }) => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
   const [modalOpened, setModalOpened] = useState(false)
   const navigate = useNavigate()
   const { user } = useUser();
+  const isAdmin = dbUser && dbUser.user.role === "admin";
+  console.log("hello : ",isAdmin)
   const { signOut, isSignedIn, userId } = useAuth();
   const { validateLogin } = useAuthCheck()
 
@@ -28,12 +28,10 @@ const Header = ({ dbUser }) => {
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
-        {/* logo */}
         <Link to="/">
           <img src={'../../../public/mylogo.png'} alt="logo" width={100} />
         </Link>
 
-        {/* menu */}
         <OutsideClickHandler
           onOutsideClick={() => {
             setMenuOpened(false);
@@ -48,13 +46,6 @@ const Header = ({ dbUser }) => {
             {isSignedIn && (
               <NavLink to="/bookings">Bookings</NavLink>
             )}
-            {isSignedIn && dbUser && dbUser.user && dbUser.user.role === 'admin' && (
-              <div onClick={handleAddPropertyClick}>Add Property</div>
-            )}
-            <AddPropertyModal
-              opened={modalOpened}
-              setOpened={setModalOpened}
-            />
             <SignedIn>
               <UserButton afterSignOutUrl='/sign-in' />
             </SignedIn>
@@ -64,7 +55,6 @@ const Header = ({ dbUser }) => {
           </div>
         </OutsideClickHandler>
 
-        {/* for medium and small screens */}
         <div
           className="menu-icon"
           onClick={() => setMenuOpened((prev) => !prev)}

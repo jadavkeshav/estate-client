@@ -1,14 +1,17 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
-import { getUser } from '../utils/myAuth';
-import { fetchUserDetails } from '../utils/api';
-import { useUser } from '@clerk/clerk-react';
 
-const AdminPrivateRoute = () => {
-    const { user } = useUser()
-    const myuser = fetchUserDetails(user?.primaryPhoneNumber.phoneNumber)   
-    console.log(myuser)
+const AdminPrivateRoute = ({dbUser}) => {
 
+    const isAdmin = dbUser && dbUser.user && dbUser.user.role === "admin";
+
+    console.log('APR', isAdmin)
+
+    if (isAdmin) {
+        return <Outlet/>
+    }else{
+        return <h1>page not found</h1>
+    }
 }
 
 export default AdminPrivateRoute

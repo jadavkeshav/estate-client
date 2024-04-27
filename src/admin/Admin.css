@@ -1,0 +1,116 @@
+/* Navbar */
+.navbar {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to the top */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #f39c12;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #34495e;
+    color: #fff;
+    width: 250px;
+    height: calc(100vh - 60px); /* Adjust height for navbar */
+    padding: 20px;
+    position: fixed; /* Fixed position */
+    top: 60px; /* Height of navbar */
+    left: 0;
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+  }
+  
+  .sidebar-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-links li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-links li a:hover {
+    color: #f39c12;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 250px; /* Adjust for sidebar width */
+    margin-top: 60px; /* Add margin to push content below navbar */
+    padding: 20px;
+  }
+  
+  .analytics-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .widget {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .widget:hover {
+    transform: translateY(-5px);
+  }
+  
+  .widget h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  

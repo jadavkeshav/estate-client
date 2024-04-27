@@ -8,7 +8,7 @@ import { useMutation } from 'react-query'
 import { createUser, getUser } from '../../utils/api.js'
 
 
-const Layout = () => {
+const Layout = ({dbUser, setDbUser}) => {
 
     const { user } = useUser();
     const { isSignedIn, userId } = useAuth();
@@ -29,7 +29,7 @@ const Layout = () => {
 
         }
     })
-    const [dbUser, setDbUser] = useState();
+    // const [dbUser, setDbUser] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -50,7 +50,7 @@ const Layout = () => {
 
             <div style={{ background: "var(--black)", overflow: "hidden" }}>
                 <Header dbUser={dbUser} />
-                <Outlet />
+                <Outlet  />
             </div>
             <Footer />
         </>

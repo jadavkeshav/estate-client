@@ -7,12 +7,12 @@ if (!PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
 }
 
-const MainLayout = () => {
+const MainLayout = ({dbUser, setDbUser}) => {
     const navigate = useNavigate()
     return (
         <div>
             <ClerkProvider navigate={navigate} publishableKey={PUBLISHABLE_KEY}>
-                <Layout />
+                <Layout dbUser={dbUser} setDbUser={setDbUser} />
             </ClerkProvider>
         </div>
     )
