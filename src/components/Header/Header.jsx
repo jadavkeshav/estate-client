@@ -42,7 +42,7 @@ const Header = ({ dbUser }) => {
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
-            <a href="mailto:jadavkeshav2005@gmail.com">Contact</a>
+            <a href="mailto:shankarhomespropertiesvlogs@gmail.com">Contact</a>
             {isSignedIn && (
               <NavLink to="/bookings">Bookings</NavLink>
             )}

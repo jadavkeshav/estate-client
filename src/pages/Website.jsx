@@ -13,7 +13,6 @@ const Website = () => {
                 <div className="white-gradient" />
                 <Hero />
             </div>
-            <Companies />
             <Residencies />
             <Value />
             <Contact />
