@@ -18,7 +18,7 @@ import { SignIn } from "@clerk/clerk-react";
 import { useAuth, useUser } from '@clerk/clerk-react'
 
 function App() {
-
+  
   const queryClient = new QueryClient()
   const [userDetails, setUserDetails] = useState({
     // favourites: [],
@@ -26,9 +26,11 @@ function App() {
     token: null
   })
 
+  
+  console.log("asdasd")
+
   const [dbUser, setDbUser] = useState();
 
-  console.log("my app: ", dbUser)
   return (
     <UserDetailContext.Provider value={{ userDetails, setUserDetails }}>
       <QueryClientProvider client={queryClient}>

@@ -1,9 +1,12 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify"
+const BASE_URL = import.meta.env.VITE_BASE_URL
+
+console.log("my url ",BASE_URL)
 
 export const api = axios.create({
-    baseURL: "http://localhost:8000/api/"
+    baseURL: BASE_URL
 })
 
 export const getAllProperties = async () => {
