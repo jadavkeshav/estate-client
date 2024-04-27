@@ -8,6 +8,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth, useUser } from '@clerk/clerk-react';
 import useAuthCheck from "../../hooks/useAuthCheck";
+import Logo from "../../../public/mylogo.png"
 const Header = ({ dbUser }) => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
@@ -29,7 +30,7 @@ const Header = ({ dbUser }) => {
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
         <Link to="/">
-          <img src={'../../../public/mylogo.png'} alt="logo" width={100} />
+          <img src={Logo} alt="logo" width={100} />
         </Link>
 
         <OutsideClickHandler
