@@ -15,6 +15,7 @@ import UserDetailContext from '../../components/context/UserDetailsContext.js';
 import { toast } from 'react-toastify';
 import ReactPlayer from 'react-player'
 import YoutubeLogo from "../../../public/youtube.svg"
+import { BiArea } from 'react-icons/bi';
 const Property = () => {
     const { pathname } = useLocation();
     const id = pathname.split("/").slice(-1)[0]
@@ -97,7 +98,7 @@ const Property = () => {
                         {/* head */}
                         <div className="flexStart head">
                             <span className='primaryText'>{data?.title}</span>
-                            <span className='orangeText' style={{ fontSize: '1.5rem' }}>$ {data?.price}</span>
+                            <span className='orangeText' style={{ fontSize: '1.5rem' , color : 'orange' }}>$ {data?.price}</span>
                         </div>
 
                         {/* facilities */}
@@ -112,10 +113,13 @@ const Property = () => {
                                 <AiTwotoneCar size={20} color="#1F3E72" />
                                 <span>{data?.facilities?.parkings} Parking</span>
                             </div>
-
                             <div className="flexStart facility">
                                 <MdMeetingRoom size={20} color="#1F3E72" />
                                 <span>{data?.facilities?.bedrooms} Room</span>
+                            </div>
+                            <div className="flexStart facility">
+                                <BiArea size={20} color="#1F3E72" />
+                                <span>{data?.facilities?.area} Sq.ft.</span>
                             </div>
                         </div>
 

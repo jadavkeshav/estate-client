@@ -78,10 +78,9 @@
 
 // export default Hero;
 
-
-import React from 'react'
-import './Hero.css'
-import { useTypewriter, Cursor } from "react-simple-typewriter"
+import React from "react";
+import "./Hero.css";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Hero = () => {
   const [text] = useTypewriter({
@@ -89,21 +88,38 @@ const Hero = () => {
     loop: {},
     typeSpeed: 120,
     deleteSpeed: 80,
-  })
+  });
   return (
-    <div className='main' >
-      <div className="content" >
+    <div className="main">
+      <div className="content">
         <h1>
-          Find Your Dream
-          <br />
-          <span className='text'>{text}<span><Cursor cursorColor="orange" /></span></span>
-          
+          Find Your Dream{" "}
+          <span className="text">
+            {text}
+            <span>
+              <Cursor cursorColor="orange" />
+            </span>
+          </span>
         </h1>
         <p className="mt-4">We Have Over Hundred's Properties For You.</p>
+        <div className="search-bar">
+          <input type="text" placeholder="Search for your dream property" />
+          <select name="type" id="type" onChange={() => {}}>
+            <option value="rent">Rent</option>
+            <option value="buy">Buy</option>
+          </select>
+          <select name="location" id="location" onChange={() => {}}>
+            <option value="lagos">Hyderabad</option>
+            <option value="abuja">Bangalore</option>
+            <option value="ibadan">Chennai</option>
+            <option value="enugu">Vizag</option>
+            <option value="portharcourt">Delhi</option>
+          </select>
+          <button>Search</button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
-
+export default Hero;

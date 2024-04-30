@@ -59,7 +59,7 @@ const Value = () => {
                       onClick={toggleAccordion}
                     >
                       <div className="flexCenter icon">{item.icon}</div>
-                      <span className="primaryText">{item.heading}</span>
+                      <span className="primaryText" >{item.heading}</span>
                       <div className="flexCenter icon">
                         <MdOutlineArrowDropDown size={20} />
                       </div>

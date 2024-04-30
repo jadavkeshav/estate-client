@@ -1,19 +1,20 @@
-.App{
+.App {
   position: relative;
   overflow-x: clip;
-  background-color: white;
-  
+  background-image: radial-gradient(rgb(215, 189, 255) 10.8%, transparent 14%);
+  background-position: 4px 4px;
+  background-size: 8px 8px;
+  background-color: rgb(255, 255, 255);
 }
-.App>:nth-child(1)
-{
+.App > :nth-child(1) {
   background: var(--black);
   position: relative;
 }
-.white-gradient{
+.white-gradient {
   position: absolute;
   width: 20rem;
   height: 20rem;
-  background: rgba(255, 255, 255, 0.522);
+  /* background: rgba(255, 255, 255, 0.522); */
   filter: blur(100px);
   border-radius: 100px;
 }

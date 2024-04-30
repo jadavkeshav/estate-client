@@ -1,12 +1,16 @@
 .h-wrapper {
   z-index: 99;
   position: sticky;
+  /* background:  linear-gradient(rgba(255, 255, 255, 0.224), rgba(214, 210, 210, 0.726)); */
+  background: rgba(255, 255, 255, 0.731);
   top: 0;
 }
 .h-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: var(--secondary);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  /* color: var(--secondary); */
+  color: black;
+  font-weight: 500;
   justify-content: space-between;
 }
 
@@ -33,12 +37,12 @@
     flex-direction: column;
     right: 4rem;
     top: 3rem;
-    background: white;
+    background: rgb(255, 255, 255);
     display: flex;
     border-radius: 10px;
     transition: all 200ms ease;
     align-items: flex-start;
     padding: 3rem;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.05);
   }
 }

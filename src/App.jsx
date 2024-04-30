@@ -27,7 +27,8 @@ function App() {
   })
 
   
-  console.log("asdasd")
+
+  
 
   const [dbUser, setDbUser] = useState();
 

@@ -2,45 +2,57 @@
   gap: 2rem;
   position: relative;
   overflow: hidden;
+  background-image: radial-gradient(rgb(215, 189, 255) 10.8%, transparent 14%);
+  background-position: 4px 4px;
+  background-size: 8px 8px;
+  background-color: rgb(255, 255, 255);
 }
 
-.r-head{
+.r-head {
   margin-bottom: 2rem;
 }
 
-.swiper-horizontal{
+.side-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 60%;
+  margin-bottom: 2rem;
+  width: 4px;
+  background: var(--primary);
+}
+
+.swiper-horizontal {
   overflow: visible;
 }
-.r-buttons{
+.r-buttons {
   position: absolute;
   gap: 1rem;
   top: -4rem;
   right: 0;
 }
-.r-buttons button{
+.r-buttons button {
   font-size: 1.2rem;
-  padding: .2rem .8rem;
-  color: blue;
+  padding: 0.2rem 0.8rem;
+  color: var(--primary);
   border: none;
   border-radius: 5px;
   background-color: white;
   cursor: pointer;
 }
-.r-buttons>:nth-child(1)
-{
-  background-color: #EEEEFF;
+.r-buttons > :nth-child(1) {
+  background-color: #eeeeff;
 }
-.r-buttons>:nth-child(2)
-{
+.r-buttons > :nth-child(2) {
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
 }
 
-
 @media (max-width: 640px) {
-  .r-head{
-  align-items: center;
+  .r-head {
+    align-items: center;
   }
-  .r-buttons{
+  .r-buttons {
     position: initial;
   }
 }

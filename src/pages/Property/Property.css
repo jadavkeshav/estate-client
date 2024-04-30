@@ -1,95 +1,121 @@
-.property-container{
-    gap: 2rem;
-    position: relative;
+.property-container {
+  gap: 2rem;
+  position: relative;
+  background-image: radial-gradient(rgb(215, 189, 255) 10.8%, transparent 14%);
+  background-position: 4px 4px;
+  background-size: 8px 8px;
+  background-color: rgb(255, 255, 255);
 }
 
-.property-container .like{
-    position: absolute;
-    top: 3rem;right: 3rem;
-    cursor: pointer;
+.property-container .like {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  cursor: pointer;
 }
 
-
-.property-container>img{
-    align-self: center;
-    max-height: 35rem;
-    width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
+.property-container>img {
+  align-self: center;
+  max-height: 35rem;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-.property-details{
-    width: 100%;
-    gap: 2rem;
-    justify-content: space-between;
+.property-details {
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
-.property-details>div{
-    flex: 1;
-    gap: 1.5rem;
+.property-details>div {
+  flex: 1;
+  gap: 1.5rem;
 }
 
-.property-details .left .head{
-    justify-content: space-between;
-    width: 100%;
+.property-details .left .head {
+  justify-content: space-between;
+  width: 100%;
 }
 
-.facilities{
-    gap: 1rem;
-    font-size: 0.9rem;
-    padding: 1rem;
+.facilities {
+  gap: 1rem;
+  font-size: 0.9rem;
+  padding: 1rem;
 }
 
-.facility{
-    gap: 0.5rem;
+.facility {
+  gap: 0.5rem;
 }
 
-.property-details .button{
-    width: 100%;
-    margin-top: 1rem;
+.property-details .button {
+  width: 100%;
+  margin-top: 1rem;
 }
 
-.property-details .button:hover{
-    transform: scale(1.05);
+.property-details .button:hover {
+  transform: scale(1.05);
 }
-
 
 .image-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .image-carousel img {
-    width: 100%;
-    transition: transform 0.5s ease;
+  width: 100%;
+  transition: transform 0.5s ease;
 }
 
 .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  cursor: pointer;
 }
 
 .carousel-arrow.left {
-    left: 10px;
+  left: 10px;
 }
 
 .carousel-arrow.right {
-    right: 10px;
+  right: 10px;
 }
 
-
 .player-wrapper {
-    position: relative;
-    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  position: relative;
+  padding-top: 56.25%;
+  /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .property-details {
+    display: flex;
+    flex-direction: column;
   }
-  
-  .react-player {
-    position: absolute;
-    top: 0;
-    left: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .property-details {
+    display: flex;
+    flex-direction: column;
   }
+
+  .property-details .left {
+    width: 100%;
+  }
+
+  .property-details .left .facilities {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

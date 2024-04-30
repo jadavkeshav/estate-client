@@ -1,48 +1,198 @@
 .r-card {
-    gap: 0.6rem;
-    padding: 1rem;
-    border-radius: 10px;
-    max-width: max-content;
-    margin: auto;
-    transition: all 300ms ease-in;
-    position: relative;
-    z-index: 0;
+  gap: 0.6rem;
+  background: white;
+  padding: 0.3rem;
+  border-radius: 10px;
+  max-height: 400px;
+  max-width: 250px;
+  margin: auto;
+  transition: all 300ms ease-in;
+  position: relative;
+  z-index: 0;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.25);
+  padding-top: 6px;
 }
 
-.r-card>svg {
-    position: absolute;
-    top: 25px;
-    margin-left: 200px;
-    z-index: 1;
-}
-
-.r-card>img {
-    width: 15rem;
-    height: 10rem;
-    border-radius: 10px;
-}
-
-.r-card> :nth-child(3) {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.r-card> :nth-child(4) {
-    font-size: 1.5rem;
-}
-
-.r-card> :nth-child(5) {
-    font-size: 0.7rem;
-    width: 15rem;
+.r-card > img {
+  width: 15rem;
+  height: 10rem;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .r-card:hover {
-    scale: 1.025;
-    cursor: pointer;
-    background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(136, 160, 255, 0.46) 217.91%);
-    box-shadow: 0px 72px 49px -51px rgba(136, 160, 255, 0.21);
+  scale: 1.025;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: var(--black);
+}
+
+.content .title .title-text {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.content .location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 36px;
+}
+
+.content .location .location-text {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.content .description .descriptionText {
+  font-size: 0.8rem;
+}
+
+.content .facilities {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.content .facilities .bedroom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.content .facilities .bathroom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.content .facilities .area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.content .facilities .parking {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.additionals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.additionals > button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.additionals > button:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.additionals > button > svg {
+  font-size: medium;
+}
+
+.additionals > a > button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.additionals > a > button:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.additionals > a > button > svg {
+  font-size: medium;
+}
+
+@media only screen and (max-width: 768px) {
+  .r-card {
+    max-width: 200px;
+    max-height: 400px;
+  }
+
+  .r-card > img {
+    width: 100%;
+    height: 8rem;
+  }
+
+  .content .title .title-text {
+    font-size: 0.9rem;
+  }
+
+  .content .location .location-text {
+    font-size: 0.7rem;
+  }
+
+  .content .description .descriptionText {
+    font-size: 0.7rem;
+  }
+
+  .content .facilities {
+    font-size: 0.6rem;
+  }
+
+  .content .facilities .bedroom {
+    font-size: 0.6rem;
+  }
+  .content .facilities .bathroom {
+    font-size: 0.6rem;
+  }
+  .content .facilities .area {
+    font-size: 0.6rem;
+  }
+  .content .facilities .parking {
+    font-size: 0.6rem;
+  }
+
+  .additionals > button {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .additionals > button > svg {
+    font-size: small;
+  }
+
+  .additionals > a > button {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .additionals > a > button > svg {
+    font-size: small;
+  }
 }
 
 /*

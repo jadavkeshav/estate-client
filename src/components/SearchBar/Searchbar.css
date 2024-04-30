@@ -1,0 +1,128 @@
+.search-bar {
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    /* space-between and gap */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    height: 5rem;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .search-bar > input {
+    width: 30rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    background-color: transparent;
+    color: var(--black);
+    outline: none;
+  }
+  
+  .search-bar > input::placeholder {
+    color: var(--black);
+  }
+  
+  .search-bar > select {
+    color: var(--black);
+    width: 12rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .search-bar > button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    background: var(--primary) !important;
+    color: var(--black);
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .search-bar {
+      width: 100%;
+      height: 14rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .search-bar > input {
+      width: 100%;
+    }
+    .search-bar > select {
+      width: 100%;
+    }
+  
+    .search-bar > button {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 1px solid #5e5e5e;
+      background: var(--blue-gradient);
+      color: var(--black);
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .search-bar {
+      width: 100%;
+      height: 14rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .search-bar > input {
+      width: 100%;
+    }
+    .search-bar > select {
+      width: 100%;
+    }
+  
+    .search-bar > button {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 1px solid #5e5e5e;
+      background: var(--blue-gradient);
+      color: var(--black);
+      cursor: pointer;
+      outline: none;
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .search-bar {
+      width: calc(100vw - 4rem);
+      height: 5rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+  
+    .search-bar > button {
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 1px solid #5e5e5e;
+      background: var(--blue-gradient);
+      color: var(--black);
+      cursor: pointer;
+      outline: none;
+    }
+  }
+  

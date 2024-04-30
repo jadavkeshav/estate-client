@@ -46,7 +46,7 @@ const Bookings = () => {
       <div className="flexColCenter paddings innerWidth properties-container">
         <Searchbar filter={filter} setFilter={setFilter} />
 
-        <div className="paddings flexCenter properties">
+        <div className="paddings flexCenter property-cards">
           {
             // data.map((card, i)=> (<PropertyCard card={card} key={i}/>))
 

@@ -96,11 +96,11 @@
   }
 } */
 
-
 /* -------------------------- */
 
 .main {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../public/bg.jpg"), no-repeat center top;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../../public/birdeyeview.jpg"), no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -114,16 +114,17 @@
   z-index: 1;
 }
 
-.content {
-  color: #ffffff;
+.main .content {
+  color: var(--secondary);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1rem;
+  justify-items: center;
   align-items: center;
 }
 
-.content>h1 {
-  margin-bottom: .5rem;
+.content > h1 {
+  margin-bottom: 0.5rem;
   font-weight: 500;
   align-items: center;
   justify-content: center;
@@ -131,25 +132,150 @@
   text-align: center;
 }
 
-.content>h1>span {
-  top: 50%;
-  transform: translateY(-50%);
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 0;
+.content > .search-bar {
+  display: flex;
+  background-color: rgba(226, 224, 224, 0.733);
+  border-radius: 5px;
+  /* space-between and gap */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  height: 5rem;
+  width: 64rem;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.content > .search-bar > input {
+  width: 30rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #5e5e5e;
+  background-color: transparent;
+  color: var(--black);
+  outline: none;
+}
+
+.content > .search-bar > input::placeholder {
+  color: var(--black);
+}
+
+.content > .search-bar > select {
+  color: var(--black);
+  width: 12rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #5e5e5e;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.content > .search-bar > button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #5e5e5e;
+  background: var(--blue-gradient);
+  color: var(--black);
+  cursor: pointer;
+  outline: none;
 }
 
 @media only screen and (max-width: 768px) {
   .content > h1 {
     font-size: 2.5rem;
   }
+
+  .content > .search-bar {
+    width: calc(100vw - 2rem);
+    height: 14rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content > .search-bar > input {
+    width: 100%;
+  }
+
+  .content > .search-bar > select {
+    width: 100%;
+  }
+
+  .content > .search-bar > button {
+    width: 100%;
+  }
+
+  .content > .search-bar > button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    background: var(--blue-gradient);
+    color: var(--black);
+    cursor: pointer;
+    outline: none;
+  }
 }
 
 @media only screen and (max-width: 576px) {
   .content > h1 {
-    font-size: 2.0rem;
+    font-size: 2rem;
   }
-  .main{
+  .main {
     background-position: center;
+  }
+
+  .content > .search-bar {
+    width: calc(100vw - 1rem);
+    height: 14rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content > .search-bar > input {
+    width: 100%;
+  }
+
+  .content > .search-bar > select {
+    width: 100%;
+  }
+
+  .content > .search-bar > button {
+    width: 100%;
+  }
+
+  .content > .search-bar > button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    background: var(--blue-gradient);
+    color: var(--black);
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .content > .search-bar {
+    width: calc(100vw - 4rem);
+    height: 5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .content > .search-bar > button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #5e5e5e;
+    background: var(--blue-gradient);
+    color: var(--black);
+    cursor: pointer;
+    outline: none;
   }
 }
