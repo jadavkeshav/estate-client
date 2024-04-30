@@ -55,4 +55,10 @@
   .r-buttons {
     position: initial;
   }
+  .r-buttons > :nth-child(1) {
+    margin-top: 15px;
+  }
+  .r-buttons > :nth-child(2) {
+     margin-top: 15px;
+  }
 }
