@@ -44,3 +44,57 @@
             rgba(136, 160, 255, 0.46) 217.91%);
     box-shadow: 0px 72px 49px -51px rgba(136, 160, 255, 0.21);
 }
+
+/*
+.r-card {
+  gap: rem;
+  padding: 0.3rem;
+  border-radius: px;
+  background-color: rgba(88, 87, 87, 0.347);
+  max-width: max-content;
+  margin: auto;
+  transition: all 300ms ease-in;
+  position: relative;
+  z-index: 0;
+}
+.r-img{
+  width: 15rem;
+  height: 10rem;
+  border-radius: 1px;
+  top: 0;
+}
+.content{
+  position: relative;
+  z-index: 1;
+}
+.content{
+  font-size: 0.9rem;
+
+}
+.title{
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: oblique;
+}
+.location{
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.facilities{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fac1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+}
+
+.bedroom{
+    margin: 0.1rem;
+} */

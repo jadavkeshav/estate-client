@@ -1,4 +1,4 @@
-.hero-wrapper {
+/* .hero-wrapper {
   color: white;
   position: relative;
   z-index: 1;
@@ -11,8 +11,6 @@
   align-items: flex-end; 
 }
 
-
-/* left side */
 .hero-left {
   gap: 3rem;
 }
@@ -58,7 +56,7 @@
 .stat>:nth-child(1)>:last-child{
     color: orange;
 }
-/* right side */
+
 
 .image-container {
   width: 30rem;
@@ -72,7 +70,6 @@
     height: 100%;
 }
 
-/* mobile screens */
 @media  (max-width: 640px){
   .hero-container{
     margin-top: 2rem;
@@ -96,5 +93,63 @@
   .stat>:nth-child(2)
   {
     font-size: 0.8rem;
+  }
+} */
+
+
+/* -------------------------- */
+
+.main {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../public/bg.jpg"), no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content>h1 {
+  margin-bottom: .5rem;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.content>h1>span {
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .content > h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .content > h1 {
+    font-size: 2.0rem;
+  }
+  .main{
+    background-position: center;
   }
 }
