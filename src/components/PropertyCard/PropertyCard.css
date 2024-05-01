@@ -130,8 +130,8 @@
 }
 
 .additionals > a > button:hover {
-  background-color: var(--secondary);
-  color: var(--primary);
+  /* background-color: var(--secondary);
+  color: var(--primary); */
 }
 
 .additionals > a > button > svg {

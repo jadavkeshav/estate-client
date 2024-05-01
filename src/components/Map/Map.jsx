@@ -3,8 +3,6 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import GeoCoderMarker from '../GeoCoderMarker/GeoCoderMarker';
 
 const Map = ({ address, city, country }) => {
-  // Get the coordinates of the specified address using a geocoding service
-  // For example, you can use the OpenStreetMap Nominatim API
   const getAddressCoordinates = async () => {
     try {
       const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address},${city},${country}`);
@@ -16,7 +14,7 @@ const Map = ({ address, city, country }) => {
     } catch (error) {
       console.error('Error fetching address coordinates:', error);
     }
-    return [0, 0]; // Return default coordinates if fetching fails
+    return [0, 0]; 
   };
 
   const setMapCenter = async () => {
@@ -26,8 +24,8 @@ const Map = ({ address, city, country }) => {
 
   return (
     <MapContainer
-      center={[53.35, 18.8]} // Default center coordinates
-      zoom={12} // Default zoom level
+      center={[53.35, 18.8]}
+      zoom={12} 
       scrollWheelZoom={false}
       style={{
         height: '40vh',

@@ -135,13 +135,13 @@ const Property = () => {
                             <MdLocationPin size={25} />
                             <span className="secondaryText">
                                 {
-                                    data?.address
+                                    data?.address + ", "
                                 }
                                 {
-                                    data?.city
+                                    data?.city + ", "
                                 }
                                 {
-                                    data?.country
+                                    data?.country + "."
                                 }
                             </span>
                         </div>

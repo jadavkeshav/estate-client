@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import Logo from "../../../public/mylogo.svg"
+import Logo from "../../../public/mylogo.png"
 const Footer = () => {
   return (
     <div className="f-wrapper">
