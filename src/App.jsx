@@ -12,8 +12,7 @@ import SignInComponent from "./components/SignIn/SignInComponent";
 import UserDetailContext from "./components/context/UserDetailsContext";
 import MainLayout from "./components/Layout/MainLayout";
 import Bookings from "./pages/Bookings/Bookings";
-import AdminDashboard from "./admin/AdminDashboard";
-import AdminPrivateRoute from "./admin/AdminPrivateRoute"
+
 import { SignIn } from "@clerk/clerk-react";
 import { useAuth, useUser } from '@clerk/clerk-react'
 

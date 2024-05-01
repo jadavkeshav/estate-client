@@ -2,26 +2,46 @@
   justify-content: space-between;
   margin-top: 100px;
   border-top: 0.5px solid rgba(0, 0, 0, 0.14);
-  
+
 }
+
 .f-left {
   gap: 1rem;
 }
+
 .f-menu {
   gap: 1.5rem;
   margin-top: 1.5rem;
   font-weight: 500;
 }
+
+.Nameeee {
+  text-decoration: none;
+  color: blue;
+  cursor: pointer;
+}
+
+.Nameeee:hover {
+  text-decoration: underline;
+}
+
+.my{
+  margin-top: 10px;
+  border-top: 1px solid black;
+}
+
 @media (max-width: 768px) {
   .f-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .f-container > div {
+
+  .f-container>div {
     align-items: center !important;
     text-align: center;
   }
+
   .f-right {
     justify-content: center;
   }

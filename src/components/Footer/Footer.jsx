@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 import Logo from "../../../public/mylogo.png"
 const Footer = () => {
+  
   return (
     <div className="f-wrapper">
       <div className="paddings innerWidth flexCenter f-container">
@@ -14,6 +15,7 @@ const Footer = () => {
           </span>
         </div>
 
+        <span>Copyright © 2022 Shankar. All Rights Reserved</span>
         <div className="flexColStart f-right">
           <span className="primaryText">Contact </span>
           <span className="secondaryText">+91 90101 67317</span>
@@ -24,6 +26,8 @@ const Footer = () => {
             <span>Product</span>
             <span>About Us</span>
           </div> */}
+          
+          <span className="secondaryText my"> <a href="http://jadavkeshav.vercel.app" target="_blank"> Crafted with passion by <span className="Nameeee">Jadav Keshav</span></a></span>
         </div>
       </div>
     </div>

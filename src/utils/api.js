@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify"
 const BASE_URL = import.meta.env.VITE_BASE_URL
 
-console.log("my url ",BASE_URL)
 
 export const api = axios.create({
     baseURL: BASE_URL
@@ -46,7 +45,6 @@ export const getProperty = async (id) => {
 export const createUser = async (phoneNumber, fullName) => {
     try {
         const response = await api.post('/user/register', { phoneNumber, name: fullName });
-        // console.log("user from db : ", response.data)
         return response.data
 
     } catch (error) {
@@ -118,7 +116,7 @@ export const getAllBookings = async (phoneNumber) => {
         );
         return res.data["bookedVisits"];
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         toast.error("Something went wrong while fetching bookings");
         throw error
     }
@@ -126,7 +124,7 @@ export const getAllBookings = async (phoneNumber) => {
 
 
 export const createResidency = async (data) => {
-    console.log(data)
+    // console.log(data)
     try {
         const res = await api.post(
             `/residency/create`,

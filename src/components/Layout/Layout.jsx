@@ -45,7 +45,7 @@ const Layout = ({dbUser, setDbUser}) => {
         fetchData();
     }, [isSignedIn, user?.primaryPhoneNumber.phoneNumber])
     
-    console.log("my user db: ", dbUser)
+    // console.log("my user db: ", dbUser)
 
     return (
         <>

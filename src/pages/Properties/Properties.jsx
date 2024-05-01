@@ -26,14 +26,36 @@ const Properties = () => {
     );
   }
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const searchQuery = searchParams.get("search");
+  const country = searchParams.get("country");
+  const city = searchParams.get("city");
+
+  let filteredData = [];
+
+  if (data && (searchQuery || country || city)) {
+    filteredData = data
+      .filter((property) =>
+        property.title.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      .filter((property) =>
+        property.city.toLowerCase().includes(city.toLowerCase())
+      )
+      .filter((property) =>
+        property.country.toLowerCase().includes(country.toLowerCase())
+      );
+  }
+
   return (
     <div className="wrapper">
       <div className="properties">
         <Searchbar />
         <div className="paddings flexCenter property-cards">
-          {data.map((card, i) => (
-            <PropertyCard card={card} />
-          ))}
+          {filteredData.length > 0
+            ? filteredData.map((card, i) => (
+                <PropertyCard key={i} card={card} />
+              ))
+            : data.map((card, i) => <PropertyCard card={card} key={i} />)}
         </div>
       </div>
     </div>

@@ -25,7 +25,6 @@ const Property = () => {
     const { validateLogin } = useAuthCheck()
     const { user } = useUser();
     const userPhoneNumber = user?.primaryPhoneNumber.phoneNumber;
-    console.log("ph", userPhoneNumber)
 
     const { userDetails: { bookings }, setUserDetails } = useContext(UserDetailContext)
     const { mutate: cancelBooking, isLoading: cancelling } = useMutation({
@@ -38,7 +37,6 @@ const Property = () => {
             toast.success("Booking Cancelled ", { position: "top-right" })
         }
     })
-    console.log("yoyo", bookings.some((booking) => booking.id === id))
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -73,7 +71,6 @@ const Property = () => {
             </div>
         </div>
     }
-    console.log("currentImageIndex : ", currentImageIndex)
 
     const imagesExist = data && data.image && data.image.length > 0;
     return (
