@@ -96,7 +96,7 @@ const Property = () => {
                         {/* head */}
                         <div className="flexStart head">
                             <span className='primaryText'>{data?.title}</span>
-                            <span className='orangeText' style={{ fontSize: '1.5rem', color: 'orange' }}>$ {data?.price}</span>
+                            <span className='primaryText' style={{ fontSize: '1.5rem' }}>$ {data?.price}</span>
                         </div>
 
                         {/* facilities */}

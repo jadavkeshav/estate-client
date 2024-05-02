@@ -61,8 +61,8 @@ const PropertyCard = ({ card }) => {
             alignItems: "center",
           }}
         >
-          <div className="price" style={{color: "orange"}}>
-            <span className="priceText">₹ {card.price}</span>
+          <div className="price">
+            <span className="price"  style={{ color: "#1f3e72" }}>₹ {card.price}</span>
           </div>
           <div className="additionals">
             <button onClick={() => navigate(`../properties/${card.id}`)}>
