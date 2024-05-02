@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import dayjs from 'dayjs';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { useMutation } from 'react-query';
 import UserDetailContext from '../context/UserDetailsContext';
 import { bookVisit } from '../../utils/api';
 import { toast } from 'react-toastify';
+import './BookingModal.css'
+
 const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
     const [value, setValue] = useState(null);
     const { userDetails, setUserDetails } = useContext(UserDetailContext);
@@ -75,9 +79,11 @@ const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
             <div className='flexColCenter'>
                 <div style={{ marginTop: '30px' }}>
                     <DatePicker
-                        label="Basic date picker"
-                        value={value}
-                        onChange={(newValue) => setValue(newValue)}
+                        placeholderText='Pick Date of Visit'
+                        selected={value}
+                        onChange={(date) => setValue(date)}
+                        dateFormat="dd/MM/yyyy"
+                        className="customDatePicker" // Added custom class
                     />
                 </div>
                 <button
@@ -93,4 +99,3 @@ const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
     );
 };
 export default BookingModal;
-

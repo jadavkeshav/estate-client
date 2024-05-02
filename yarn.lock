@@ -1841,13 +1841,13 @@ react-date-picker@^10.6.0:
     react-fit "^1.7.0"
     update-input-width "^1.4.0"
 
-react-datepicker@^6.5.0:
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/react-datepicker/-/react-datepicker-6.5.0.tgz"
-  integrity sha512-VXufB/CH04O9K/puRxr7BGBD+2Hf9mSSwG9HMa6ZP+LXckCpibllOPuRYxk4kW8W22AfLps4MY04NJAgk4JpJg==
+react-datepicker@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/react-datepicker/-/react-datepicker-6.9.0.tgz"
+  integrity sha512-QTxuzeem7BUfVFWv+g5WuvzT0c5BPo+XTCNbMTZKSZQLU+cMMwSUHwspaxuIcDlwNcOH0tiJ+bh1fJ2yxOGYWA==
   dependencies:
     "@floating-ui/react" "^0.26.2"
-    classnames "^2.2.6"
+    clsx "^2.1.0"
     date-fns "^3.3.1"
     prop-types "^15.7.2"
     react-onclickoutside "^6.13.0"
