@@ -27,7 +27,7 @@ const Footer = () => {
             <span>About Us</span>
           </div> */}
           
-          <span className="secondaryText my"> <a href="http://jadavkeshav.vercel.app" target="_blank"> Crafted with passion by <span className="Nameeee">Jadav Keshav</span></a></span>
+          
         </div>
       </div>
     </div>
