@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useMutation, useQuery } from "react-query"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { getProperty, removeBooking } from '../../utils/api';
 import { PuffLoader } from "react-spinners"
 import { AiFillHeart, AiFillLayout, AiOutlineLeft, AiOutlineRight, AiTwotoneCar } from 'react-icons/ai';
@@ -18,6 +18,7 @@ import YoutubeLogo from "../../../public/youtube.svg"
 import { BiArea } from 'react-icons/bi';
 const Property = () => {
     const { pathname } = useLocation();
+    const navigate = useNavigate();
     const id = pathname.split("/").slice(-1)[0]
     const { data, isLoading, isError } = useQuery(["resd", id], () => getProperty(id))
 
@@ -95,7 +96,7 @@ const Property = () => {
                         {/* head */}
                         <div className="flexStart head">
                             <span className='primaryText'>{data?.title}</span>
-                            <span className='orangeText' style={{ fontSize: '1.5rem' , color : 'orange' }}>$ {data?.price}</span>
+                            <span className='orangeText' style={{ fontSize: '1.5rem', color: 'orange' }}>$ {data?.price}</span>
                         </div>
 
                         {/* facilities */}
@@ -161,6 +162,17 @@ const Property = () => {
                                     <span>Your visit already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}</span>
                                 </>
                             ) : (
+                                // validateLogin() ? (
+                                //     <>
+                                //         <button className='button' onClick={() => validateLogin() && setModalOpened(true)}>
+                                //             Book Your Visit
+                                //         </button>
+                                //     </>) : (
+
+                                //     navigate('/sign-in')
+
+                                // )
+
                                 <button className='button' onClick={() => validateLogin() && setModalOpened(true)}>
                                     Book Your Visit
                                 </button>
