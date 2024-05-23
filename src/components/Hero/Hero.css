@@ -100,7 +100,7 @@
 
 .main {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../../../public/birdeyeview.jpg"), no-repeat center top ;
+    url("https://res.cloudinary.com/dq5dj7wsa/image/upload/v1716451286/ijicnyqpllwtfmtvuft8.jpg"), no-repeat center top ;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
