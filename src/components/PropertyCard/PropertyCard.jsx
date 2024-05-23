@@ -10,6 +10,7 @@ import {
   MdOutlineBedroomParent,
 } from "react-icons/md";
 import { BsEye, BsYoutube } from "react-icons/bs";
+import { FaRupeeSign } from "react-icons/fa";
 const PropertyCard = ({ card }) => {
   const navigate = useNavigate();
 
@@ -61,8 +62,10 @@ const PropertyCard = ({ card }) => {
             alignItems: "center",
           }}
         >
-          <div className="price">
-            <span className="price"  style={{ color: "#1f3e72" }}>₹ {card.price}</span>
+          <div className="price" style={{ display: "flex" , alignItems: "center"}}>
+            {/* <span className="price"  style={{ color: "#1f3e72" }}>{card.price}</span> */}
+            <span className="price" style={{ color: "#1f3e72" , whiteSpace: "nowrap"}}><FaRupeeSign size="0.8em" /> {card.price}</span>
+
           </div>
           <div className="additionals">
             <button onClick={() => navigate(`../properties/${card.id}`)}>

@@ -14,6 +14,7 @@ import BookingModal from '../../components/BookingModal/BookingModal.jsx';
 import UserDetailContext from '../../components/context/UserDetailsContext.js';
 import { toast } from 'react-toastify';
 import ReactPlayer from 'react-player'
+import { FaRupeeSign } from 'react-icons/fa';
 import YoutubeLogo from "../../../public/youtube.svg"
 import { BiArea } from 'react-icons/bi';
 const Property = () => {
@@ -96,7 +97,7 @@ const Property = () => {
                         {/* head */}
                         <div className="flexStart head">
                             <span className='primaryText'>{data?.title}</span>
-                            <span className='primaryText' style={{ fontSize: '1.5rem' }}>$ {data?.price}</span>
+                            <span className='primaryText' style={{ fontSize: '1.5rem' }}><FaRupeeSign size="0.8em" /> {data?.price}</span>
                         </div>
 
                         {/* facilities */}

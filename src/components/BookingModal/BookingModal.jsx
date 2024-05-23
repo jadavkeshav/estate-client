@@ -83,16 +83,16 @@ const BookingModal = ({ opened, setOpened, propertyId, phoneNumber }) => {
                         selected={value}
                         onChange={(date) => setValue(date)}
                         dateFormat="dd/MM/yyyy"
-                        className="customDatePicker" // Added custom class
+                        className="customDatePicker"
                     />
                 </div>
                 <button
-                    disabled={!value || isLoading} // Disable button while loading
+                    disabled={!value || isLoading}
                     onClick={() => mutate()}
                     className='button'
                     style={{ marginTop: '10px' }}
                 >
-                    {isLoading ? "Booking..." : "Book Visit"} {/* Change button text based on loading state */}
+                    {isLoading ? "Booking..." : "Book Visit"} 
                 </button>
             </div>
         </Modal>

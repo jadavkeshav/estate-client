@@ -3,7 +3,7 @@ import { SignIn } from "@clerk/clerk-react"
 
 const SignInComponent = () => {
   return (
-    <div className='center'>
+    <div className='center' style={{zIndex: 0}} >
       <SignIn />
     </div>
   )
