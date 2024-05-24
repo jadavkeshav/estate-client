@@ -15,12 +15,12 @@ import Bookings from "./pages/Bookings/Bookings";
 
 import { SignIn } from "@clerk/clerk-react";
 import { useAuth, useUser } from '@clerk/clerk-react'
+import SignUpComponent from "./components/SignIn/SignUpComponent";
 
 function App() {
   
   const queryClient = new QueryClient()
   const [userDetails, setUserDetails] = useState({
-    // favourites: [],
     bookings: [],
     token: null
   })
@@ -39,6 +39,7 @@ function App() {
             <Routes>
               <Route element={<MainLayout dbUser={dbUser} setDbUser={setDbUser} />}>
                 <Route path="/sign-in" element={<SignInComponent />} />
+                <Route path="/sign-up" element={<SignUpComponent />} />
                 <Route path="/" element={<Website />} />
                 <Route path="/properties">
                   <Route index element={<Properties />} />
@@ -46,6 +47,7 @@ function App() {
                 </Route>
                 <Route path="/bookings" element={<Bookings />}></Route>
               </Route>
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
         </BrowserRouter>

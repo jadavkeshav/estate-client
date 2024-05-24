@@ -9,7 +9,6 @@ const Searchbar = () => {
   useEffect(() => {
     fetch("https://estate-server-dr3t.onrender.com/api/residency/allresd")
       .then((res) => res.json())
-      // check for repeated cities and countries, ignore uppercase and lowercase
       .then((data) => {
         const cities = Array.from(
           new Set(data.map((property) => property.city.toLowerCase()))
@@ -32,7 +31,6 @@ const Searchbar = () => {
   return (
     <div className="search-bar">
       <input type="text" placeholder="Search for your dream property" />
-      {/* Select for countries */}
       <select>
         <option value="">Country</option>
         {countries.map((country, i) => (
@@ -42,9 +40,7 @@ const Searchbar = () => {
         ))}
       </select>
 
-      {/* Select for cities */}
       <select>
-        {/* capitalize the first letter of the city */}
         <option value="">City</option>
         {cities.map((city, i) => (
           <option key={i} value={city}>

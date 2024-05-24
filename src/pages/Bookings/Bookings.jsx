@@ -1,10 +1,3 @@
-// import React, { useContext, useState } from "react";
-// import SearchBar from "../../components/SearchBar/SearchBar";
-// import useProperties from "../../hooks/useProperties";
-// import { PuffLoader } from "react-spinners";
-// import PropertyCard from "../../components/PropertyCard/PropertyCard";
-// import UserDetailContext from "../../components/context/UserDetailsContext";
-
 import { useContext, useState } from "react";
 import UserDetailContext from "../../components/context/UserDetailsContext";
 import useProperties from "../../hooks/useProperties";
@@ -48,7 +41,6 @@ const Bookings = () => {
 
         <div className="paddings flexCenter property-cards">
           {
-            // data.map((card, i)=> (<PropertyCard card={card} key={i}/>))
 
             data
               .filter((property) =>

@@ -92,17 +92,13 @@ const Property = () => {
 
 
                 <div className="flexCenter property-details">
-                    {/* left side */}
                     <div className="flexColStart left">
-                        {/* head */}
                         <div className="flexStart head">
                             <span className='primaryText'>{data?.title}</span>
                             <span className='primaryText' style={{ fontSize: '1.5rem' }}><FaRupeeSign size="0.8em" /> {data?.price}</span>
                         </div>
 
-                        {/* facilities */}
                         <div className="flexStart facilities">
-                            {/* indv sections */}
                             <div className="flexStart facility">
                                 <FaShower size={20} color="#1F3E72" />
                                 <span>{data?.facilities?.bathrooms} Bathrooms</span>
@@ -148,13 +144,11 @@ const Property = () => {
                         {/* booking button */}
 
                         {cancelling ? (
-                            // Show loading indication while cancelling
                             <div className="flexCenter">
                                 <PuffLoader />
                                 <span>Cancelling booking...</span>
                             </div>
                         ) : (
-                            // Show booking cancellation button or booking status
                             bookings?.map((booking) => booking.id).includes(id) ? (
                                 <>
                                     <button className='button' style={{ background: "red", width: '100%' }} onClick={cancelBooking}>
@@ -163,16 +157,7 @@ const Property = () => {
                                     <span>Your visit already booked for date {bookings?.filter((booking) => booking?.id === id)[0].date}</span>
                                 </>
                             ) : (
-                                // validateLogin() ? (
-                                //     <>
-                                //         <button className='button' onClick={() => validateLogin() && setModalOpened(true)}>
-                                //             Book Your Visit
-                                //         </button>
-                                //     </>) : (
-
-                                //     navigate('/sign-in')
-
-                                // )
+                                
 
                                 <button className='button' onClick={() => validateLogin() && setModalOpened(true)}>
                                     Book Your Visit

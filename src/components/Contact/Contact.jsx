@@ -18,7 +18,6 @@ const Contact = () => {
 
 
           <div className="flexColStart contactModes">
-            {/* first row */}
             <div className="flexStart row">
               <div><span></span></div>
               <div className="flexColCenter mode">
@@ -38,7 +37,6 @@ const Contact = () => {
               <div className="flexColCenter mode">
                 <div className="flexStart">
                   <div className="flexCenter icon">
-                    {/* <HiChatBubbleBottomCenter size={25} /> */}
                     <img src={whastapp} alt="" style={{ width: '25px' }} />
                   </div>
                   <div className="flexColStart detail" >

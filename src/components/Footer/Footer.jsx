@@ -11,7 +11,6 @@ const Footer = () => {
   return (
     <div className="f-wrapper" style={{marginTop: pathname === "sign-in" ? "35rem" : '0'}}>
       <div className="paddings innerWidth flexCenter f-container">
-        {/* left side */}
         <div className="flexColStart f-left">
           <img src={Logo} alt="" style={{width: "150px"}} />
           <span className="secondaryText">
@@ -20,7 +19,7 @@ const Footer = () => {
           </span>
         </div>
 
-        <span>Copyright © 2022 Shankar. All Rights Reserved</span>
+        <span>Copyright © 2024 Shankar. All Rights Reserved</span>
         <div className="flexColStart f-right">
           <span className="primaryText">Contact </span>
           <span className="secondaryText">+91 90101 67317</span>
